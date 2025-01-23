@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrAzzy Paypal</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #003087;
+            color: white;
+        }
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar ul li {
+            margin: 0 15px;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .navbar ul li a:hover {
+            text-decoration: underline;
+        }
+        .navbar button {
+            background-color: #009cde;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .navbar button:hover {
+            background-color: #0079c1;
+        }
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                display: none;
+            }
+            .navbar ul.show {
+                display: flex;
+            }
+            .navbar .menu-toggle {
+                display: block;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 24px;
+                cursor: pointer;
+            }
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .dashboard {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .card h2 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .balance {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .currency {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .currency img {
+            width: 24px;
+            height: 16px;
+            border: 1px solid #ddd;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .link {
+            color: #0070ba;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+        }
+
+        .cash-flow {
+            text-align: center;
+        }
+
+        .cash-flow p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .cta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f4f4f4;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .cta a {
+            color: #0070ba;
+            text-decoration: none;
+        }
+
+        .cta a:hover {
+            text-decoration: underline;
+        }
+
+        .cta button {
+            background-color: #0070ba;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .cta button:hover {
+            background-color: #005a96;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: white;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header img {
+            height: 30px;
+        }
+
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        header nav a:hover {
+            color: #0070ba;
+        }
+
+        footer {
+            background-color: white;
+            border-top: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #0070ba;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Sultan085</div>
+        <button class="menu-toggle">&#9776;</button>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Send</a></li>
+            <li><a href="#">Wallet</a></li>
+            <li><a href="#">Activity</a></li>
+            <li><a href="#">Help</a></li>
+        </ul>
+        <button>Log out</button>
+    </nav>
+    <div class="container">
+        <h1>Money</h1>
+
+        <div class="dashboard">
+            <!-- Available Balance Card -->
+            <div class="card">
+                <h2>$174962186 USD*</h2>
+                <p class="balance">Available balance</p>
+                <div class="currency">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Flag_of_the_United_States.png" alt="US Flag">
+                    <span>$17.86 USD</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg" alt="EU Flag">
+                    <span>€0.00 EUR</span>
+                </div>
+                <p class="note">*This amount is an estimate based on the most recent currency conversion rate.</p>
+                <a href="2ndx.html" class="link">Transfer money</a>
+            </div>
+
+            <!-- Cash Flow Card -->
+            <div class="card">
+                <h3>Cash flow</h3>
+                <p class="note">Last 7 days</p>
+                <div class="cash-flow">
+                    <h3>$1564435 USD</h3>
+                    <p>Money in</p>
+                    <h3>$4561212 USD</h3>
+                    <p>Money out</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta">
+            <p>Recurring payments dashboard<br><small>Manage existing subscriptions, billing agreements, and more.</small></p>
+            <button>Learn more</button>
+        </div>
+    </div>
+
+    <body>
+        <header>
+            <img src="https://paypalweb-1yplbbn18-freeworldfghjhjkjkjghjgkdz.vercel.app/assets/images/PayPal.svg.png" alt="PayPal Logo">
+            <nav>
+                <a href="#">Help</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Security</a>
+            </nav>
+        </header>
+    
+        <footer>
+            <p>&copy; 1999-2023 PayPal, Inc. All rights reserved. <a href="#">Privacy</a> <a href="#">Cookies</a> <a href="#">Legal</a></p>
+            <p>PayPal Pte. Ltd. is licensed by the Monetary Authority of Singapore as a Major Payment Institution under the Payment Services Act 2019.</p>
+        </footer>
+    </body>
+
+    <script>
+        const toggleButton = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.navbar ul');
+
+        toggleButton.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
+
+
